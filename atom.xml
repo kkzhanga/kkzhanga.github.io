@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-11-26T02:35:28.070Z</updated>
+  <updated>2020-11-26T02:55:43.051Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>从零搭建sprinCloud中前台项目</title>
-    <link href="http://example.com/2020/11/19/my-first-blog/"/>
-    <id>http://example.com/2020/11/19/my-first-blog/</id>
+    <title>从零搭建sprinCloud框架（一）</title>
+    <link href="http://example.com/2020/11/19/buildSprinCloud_1/"/>
+    <id>http://example.com/2020/11/19/buildSprinCloud_1/</id>
     <published>2020-11-19T08:43:07.000Z</published>
-    <updated>2020-11-26T02:35:28.070Z</updated>
+    <updated>2020-11-26T02:55:43.051Z</updated>
     
     <content type="html"><![CDATA[<p>本项目基于idea+maven组合</p><h2 id="项目父工程配置"><a href="#项目父工程配置" class="headerlink" title="项目父工程配置"></a>项目父工程配置</h2><h3 id="Idea创建工程："><a href="#Idea创建工程：" class="headerlink" title="Idea创建工程："></a>Idea创建工程：</h3><ol><li><p>File -&gt; New -&gt; Project<br><img src="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" srcset="data:image/png;base64,666" alt="1606358078.jpg"></p></li><li><p>Empty Project -&gt;Next<br><img src="https://i.loli.net/2020/11/19/zK9nLFk1MbWvsNQ.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/zK9nLFk1MbWvsNQ.png" srcset="data:image/png;base64,666" alt="20201119_1.jpg"></p></li><li><p>项目命名 -&gt; 项目位置-&gt; Finish<br><img src="https://i.loli.net/2020/11/19/h9vF4OrxuwPidCp.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/h9vF4OrxuwPidCp.png" srcset="data:image/png;base64,666" alt="20201119_2.jpg"></p></li><li><p>选择打开新窗口<br><img src="https://i.loli.net/2020/11/19/SorBZD7w5UJkfbm.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/SorBZD7w5UJkfbm.png" srcset="data:image/png;base64,666" alt="20201119_3.jpg"></p></li></ol><h2 id="项目子工程配置"><a href="#项目子工程配置" class="headerlink" title="项目子工程配置"></a>项目子工程配置</h2><h3 id="配置Maven"><a href="#配置Maven" class="headerlink" title="配置Maven"></a>配置Maven</h3><ol><li>File -&gt; Settings -&gt; OK<br><img src="https://i.loli.net/2020/11/19/oO2StVpT7iPZkYr.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/oO2StVpT7iPZkYr.png" srcset="data:image/png;base64,666" alt="20201119_5.jpg"></li></ol><h3 id="新建中前台Module"><a href="#新建中前台Module" class="headerlink" title="新建中前台Module"></a>新建中前台Module</h3><ol><li><p>项目上右击 -&gt; New -&gt; Module<br><img src="https://i.loli.net/2020/11/19/HwXy316SuYQ7L4E.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/HwXy316SuYQ7L4E.png" srcset="data:image/png;base64,666" alt="20201119_4.jpg"></p></li><li><p>选择java -&gt; Next<br><img src="https://i.loli.net/2020/11/19/BH5sdGnhqiEFDUv.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/BH5sdGnhqiEFDUv.png" srcset="data:image/png;base64,666" alt="20201119_6.jpg"></p></li><li><p>设置中台模块名称<br><img src="https://i.loli.net/2020/11/19/jcRfaSLT37sK956.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/jcRfaSLT37sK956.png" srcset="data:image/png;base64,666" alt="20201119_7.jpg"></p></li><li><p>其他同级模块新建同理，比如前台，docs，sql等，最终呈现如图所示：<br><img src="https://i.loli.net/2020/11/19/FKQ7DijYWXytxdr.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/FKQ7DijYWXytxdr.png" srcset="data:image/png;base64,666" alt="20201119_8.jpg"></p></li></ol><h3 id="新建maven项目"><a href="#新建maven项目" class="headerlink" title="新建maven项目"></a>新建maven项目</h3><ol><li><p>项目上右击(如middle) -&gt; New -&gt; Module -&gt; Maven -&gt; quickstart -&gt;Next<br><img src="https://i.loli.net/2020/11/19/Vtwfn53o6eKFjAp.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/Vtwfn53o6eKFjAp.png" srcset="data:image/png;base64,666" alt="20201119_9.jpg"></p></li><li><p>设置ArtifactId，groupId为组织名，一般为公司网址反写 -&gt; Next<br><img src="https://i.loli.net/2020/11/19/7UchfKAoGlgwX4L.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/7UchfKAoGlgwX4L.png" srcset="data:image/png;base64,666" alt="20201119_10.jpg"></p></li><li><p>设置工程名称(在根目录下新加同名子文件夹) -&gt; Finish<br><img src="https://i.loli.net/2020/11/19/czsI92GtQM6D8dS.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/czsI92GtQM6D8dS.png" srcset="data:image/png;base64,666" alt="20201119_11.jpg"></p></li><li><p>创建resources文件夹:</p><ul><li><p>右击main -&gt; New -&gt; Directory<br><img src="https://i.loli.net/2020/11/19/ALsRBygK2H7Wcnx.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/ALsRBygK2H7Wcnx.png" srcset="data:image/png;base64,666" alt="20201119_12.jpg"></p></li><li><p>右击resources, 变成有黄色的横杠,作为资源根目录<br><img src="https://i.loli.net/2020/11/19/OzhqiK2DVgTyN3F.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/19/OzhqiK2DVgTyN3F.png" srcset="data:image/png;base64,666" alt="20201119_13.jpg"></p></li></ul></li></ol>]]></content>
     
@@ -30,26 +30,6 @@
       
     <summary type="html">&lt;p&gt;本项目基于idea+maven组合&lt;/p&gt;
 &lt;h2 id=&quot;项目父工程配置&quot;&gt;&lt;a href=&quot;#项目父工程配置&quot; class=&quot;headerlink&quot; title=&quot;项目父工程配置&quot;&gt;&lt;/a&gt;项目父工程配置&lt;/h2&gt;&lt;h3 id=&quot;Idea创建工程：&quot;&gt;&lt;a href=&quot;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2020/11/06/hello-world/"/>
-    <id>http://example.com/2020/11/06/hello-world/</id>
-    <published>2020-11-06T06:08:37.040Z</published>
-    <updated>2020-11-06T06:08:37.040Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
