@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kkzhanga.github.io/2020/11/26/springCloud/buildSprinCloud_2/</loc>
+    
+    <lastmod>2020-12-10</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kkzhanga.github.io/2020/11/27/springCloud/buildSprinCloud_3/</loc>
     
     <lastmod>2020-12-10</lastmod>
@@ -10,13 +17,6 @@
   
   <url>
     <loc>https://kkzhanga.github.io/2020/11/19/springCloud/buildSprinCloud_1/</loc>
-    
-    <lastmod>2020-12-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kkzhanga.github.io/2020/11/26/springCloud/buildSprinCloud_2/</loc>
     
     <lastmod>2020-12-10</lastmod>
     
