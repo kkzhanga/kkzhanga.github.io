@@ -2,35 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2020/11/26/springCloud/buildSprinCloud_2/</loc>
+    <loc>https://kkzhanga.github.io/2020/11/27/springCloud/buildSprinCloud_3/</loc>
     
-    <lastmod>2020-12-08</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2020/11/19/springCloud/buildSprinCloud_1/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
+    <lastmod>2020-12-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2020/11/27/springCloud/buildSprinCloud_3/</loc>
+    <loc>https://kkzhanga.github.io/2020/11/19/springCloud/buildSprinCloud_1/</loc>
     
-    <lastmod>2020-11-27</lastmod>
+    <lastmod>2020-12-10</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/2020/11/26/springCloud/buildSprinCloud_2/</loc>
+    
+    <lastmod>2020-12-10</lastmod>
     
   </url>
   
 
   <url>
-    <loc>http://example.com/</loc>
-    <lastmod>2020-12-09</lastmod>
+    <loc>https://kkzhanga.github.io/</loc>
+    <lastmod>2020-12-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
+  <url>
+    <loc>https://kkzhanga.github.io/tags/SpringCloud/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/tags/maven/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/tags/idea/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://kkzhanga.github.io/categories/SpringCloud/</loc>
+    <lastmod>2020-12-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
