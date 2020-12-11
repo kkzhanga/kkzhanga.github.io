@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive: 2020 - KKZhang’s Blog</title>
+  <title>springBoot之过滤器 vs 拦截器 - KKZhang’s Blog</title>
+  
+    <meta name="keywords" content="springBoot,filter,interceptor">
   
 
   
@@ -58,7 +58,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -181,7 +181,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  search' style="display: ;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist@1.0.0/2020/025.jpg"></div>
           
@@ -221,210 +221,222 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2020/12/11/spring/filterAndInterceptor/">
+      <h1 class="title">
         springBoot之过滤器 vs 拦截器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        从上面对拦截器与过滤器的描述来看，它俩是非常相似的，都能对客户端发来的请求进行处理，它们的区别如下：
-作用域不同
-过滤器依赖于servlet容器，只能在 servlet容器，web环境下使用拦截器依赖于spring容器，可以在spring容器中调用，不管此时Spring处于什么环境
-细粒度的不同
-过滤器的控制比较粗，只能在请求进来时进行处理，对请求和响应进行包装拦截器提供更精细的控制，可以在...
-      
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>kkzhang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/springBoot/">springBoot</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-12-11</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Dec 11, 2020</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/springBoot/">springBoot</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="springBoot之过滤器 vs 拦截器" data-path="/2020/12/11/spring/filterAndInterceptor/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>从上面对拦截器与过滤器的描述来看，它俩是非常相似的，都能对客户端发来的请求进行处理，它们的区别如下：</p>
+<p>作用域不同</p>
+<p>过滤器依赖于servlet容器，只能在 servlet容器，web环境下使用<br>拦截器依赖于spring容器，可以在spring容器中调用，不管此时Spring处于什么环境</p>
+<p>细粒度的不同</p>
+<p>过滤器的控制比较粗，只能在请求进来时进行处理，对请求和响应进行包装<br>拦截器提供更精细的控制，可以在controller对请求处理之前或之后被调用，也可以在渲染视图呈现给用户之后调用</p>
+<p>中断链执行的难易程度不同</p>
+<p>拦截器可以 preHandle方法内返回 false 进行中断<br>过滤器就比较复杂，需要处理请求和响应对象来引发中断，需要额外的动作，比如将用户重定向到错误页面</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/12/11/spring/filterAndInterceptor/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/>https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-11T16:30:48+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Dec 11, 2020</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/springBoot/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>springBoot</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/filter/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>filter</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/interceptor/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>interceptor</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2020/11/27/springCloud/buildSprinCloud_3/">
-        从零搭建sprinCloud框架（三）
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/&title=springBoot之过滤器 vs 拦截器 - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/&title=springBoot之过滤器 vs 拦截器 - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/&title=springBoot之过滤器 vs 拦截器 - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2020-11-27</time>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2020/11/27/springCloud/buildSprinCloud_3/'>
-            Read More
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/11/27/springCloud/buildSprinCloud_3/'>
+          <p class='title'>从零搭建sprinCloud框架（三）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'></p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/springCloud/buildSprinCloud_2/">
-        从零搭建sprinCloud框架（二）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h1 id="整合gateway"><a href="#整合gateway" class="headerlink" title="整合gateway"></a>整合gateway</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>SpringCloud Gateway成为SpringCloud的重要组件是为了提到替代Netflix Zuul(1.x版本基于过滤器，阻塞IO，不支持长连接，2.x版本一直跳票，2019年5月，开源了支持异步调用模式的Zuul 2.0版本)</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/26/springCloud/buildSprinCloud_2/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/19/springCloud/buildSprinCloud_1/">
-        从零搭建sprinCloud框架（一）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h1 id="搭建工程基础框架"><a href="#搭建工程基础框架" class="headerlink" title="搭建工程基础框架"></a>搭建工程基础框架</h1><h2 id="项目父工程配置"><a href="#项目父工程配置" class="headerlink" title="项目父工程配置"></a>项目父工程配置</h2><h3 id="Idea创建工程："><a href="#Idea创建工程：" class="headerlink" title="Idea创建工程："></a>Idea创建工程：</h3><ol>
-<li><p>File -&gt; New -&gt; Project<br><img src="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" srcset="data:image/png;base64,666" alt="1606358078.jpg"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/19/springCloud/buildSprinCloud_1/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-	
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -432,131 +444,14 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">KKZhang’s Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
 
 
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/SpringCloud/" href="/categories/SpringCloud/"
-            id="categoriesSpringCloud"
-            ><div class='name'>SpringCloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/springBoot/" href="/categories/springBoot/"
-            id="categoriesspringBoot"
-            ><div class='name'>springBoot</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/SpringCloud/" style="font-size: 14px; color: #999">SpringCloud</a> <a href="/tags/filter/" style="font-size: 14px; color: #999">filter</a> <a href="/tags/idea/" style="font-size: 14px; color: #999">idea</a> <a href="/tags/interceptor/" style="font-size: 14px; color: #999">interceptor</a> <a href="/tags/maven/" style="font-size: 14px; color: #999">maven</a> <a href="/tags/springBoot/" style="font-size: 14px; color: #999">springBoot</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -566,14 +461,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="springBoot之过滤器 vs 拦截器";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 

@@ -6,7 +6,7 @@
   <link href="https://kkzhanga.github.io/atom.xml" rel="self"/>
   
   <link href="https://kkzhanga.github.io/"/>
-  <updated>2020-12-10T09:44:58.124Z</updated>
+  <updated>2020-12-11T08:30:48.934Z</updated>
   <id>https://kkzhanga.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springBoot之过滤器 vs 拦截器</title>
+    <link href="https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/"/>
+    <id>https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/</id>
+    <published>2020-12-11T08:43:07.000Z</published>
+    <updated>2020-12-11T08:30:48.934Z</updated>
+    
+    <content type="html"><![CDATA[<p>从上面对拦截器与过滤器的描述来看，它俩是非常相似的，都能对客户端发来的请求进行处理，它们的区别如下：</p><p>作用域不同</p><p>过滤器依赖于servlet容器，只能在 servlet容器，web环境下使用<br>拦截器依赖于spring容器，可以在spring容器中调用，不管此时Spring处于什么环境</p><p>细粒度的不同</p><p>过滤器的控制比较粗，只能在请求进来时进行处理，对请求和响应进行包装<br>拦截器提供更精细的控制，可以在controller对请求处理之前或之后被调用，也可以在渲染视图呈现给用户之后调用</p><p>中断链执行的难易程度不同</p><p>拦截器可以 preHandle方法内返回 false 进行中断<br>过滤器就比较复杂，需要处理请求和响应对象来引发中断，需要额外的动作，比如将用户重定向到错误页面</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从上面对拦截器与过滤器的描述来看，它俩是非常相似的，都能对客户端发来的请求进行处理，它们的区别如下：&lt;/p&gt;
+&lt;p&gt;作用域不同&lt;/p&gt;
+&lt;p&gt;过滤器依赖于servlet容器，只能在 servlet容器，web环境下使用&lt;br&gt;拦截器依赖于spring容器，可以在spring</summary>
+      
+    
+    
+    
+    <category term="springBoot" scheme="https://kkzhanga.github.io/categories/springBoot/"/>
+    
+    
+    <category term="springBoot" scheme="https://kkzhanga.github.io/tags/springBoot/"/>
+    
+    <category term="filter" scheme="https://kkzhanga.github.io/tags/filter/"/>
+    
+    <category term="interceptor" scheme="https://kkzhanga.github.io/tags/interceptor/"/>
+    
+  </entry>
   
   <entry>
     <title>从零搭建sprinCloud框架（三）</title>
