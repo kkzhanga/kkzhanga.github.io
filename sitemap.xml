@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kkzhanga.github.io/2021/04/22/springBoot/starter1/</loc>
+    
+    <lastmod>2021-04-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kkzhanga.github.io/2020/12/11/spring/filterAndInterceptor/</loc>
     
     <lastmod>2020-12-14</lastmod>
@@ -32,7 +39,7 @@
 
   <url>
     <loc>https://kkzhanga.github.io/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -40,42 +47,56 @@
   
   <url>
     <loc>https://kkzhanga.github.io/tags/springBoot/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/tags/filter/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/tags/interceptor/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/tags/SpringCloud/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/tags/maven/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/tags/idea/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/tags/starter/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/tags/spi/</loc>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -84,14 +105,14 @@
   
   <url>
     <loc>https://kkzhanga.github.io/categories/springBoot/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://kkzhanga.github.io/categories/SpringCloud/</loc>
-    <lastmod>2020-12-14</lastmod>
+    <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

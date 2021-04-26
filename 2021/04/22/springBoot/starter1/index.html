@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: SpringCloud - KKZhang’s Blog</title>
+  <title>springBoot自定义starter - KKZhang’s Blog</title>
+  
+    <meta name="keywords" content="springBoot,starter,spi">
   
 
   
@@ -181,7 +181,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="full" class='cover-wrapper post search' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist@1.0.0/2020/025.jpg"></div>
           
@@ -220,121 +220,258 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        springBoot自定义starter
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>kkzhang</p>
+  </a>
+</div>
+
           
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/26/springCloud/buildSprinCloud_2/">
-        从零搭建sprinCloud框架（二）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h1 id="整合gateway"><a href="#整合gateway" class="headerlink" title="整合gateway"></a>整合gateway</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>SpringCloud Gateway成为SpringCloud的重要组件是为了提到替代Netflix Zuul(1.x版本基于过滤器，阻塞IO，不支持长连接，2.x版本一直跳票，2019年5月，开源了支持异步调用模式的Zuul 2.0版本)</p>
-    
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/springBoot/">springBoot</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-11-26</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 22, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="springBoot自定义starter" data-path="/2021/04/22/springBoot/starter1/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>   一直想总结下springBoot的starter机制，以便于对自动装配能有进一步的了解。<br>使用starter之前，需要了解下SPI机制。</p>
+<h2 id="SPI机制"><a href="#SPI机制" class="headerlink" title="SPI机制"></a>SPI机制</h2><h3 id="SPI机制介绍"><a href="#SPI机制介绍" class="headerlink" title="SPI机制介绍"></a>SPI机制介绍</h3><p>   SPI全称Service Provider Interface(服务提供发现机制)， 是Java提供的一套用来被第三方实现或者扩展的API，<br>它可以用来启用框架扩展和替换组件。实际上是“基于接口的编程＋策略模式＋配置文件”组合实现的动态加载机制。Java中SPI机制主要思想是将装配的控制权移到程序之外，在模块化设计中这个机制尤其重要，其核心思想就是: 解耦。</p>
+<p>  如图所示：<br>   <img src="https://i.loli.net/2021/04/22/Ft6bxGnB1lUocDf.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/22/Ft6bxGnB1lUocDf.png" srcset="data:image/png;base64,666" alt="spi机制.png"></p>
+<p>例子：<br>     JDK中有支持音乐播放，假设只支持mp3的播放，有些厂商想在这个基础之上支持mp4播放，有的想支持mp5播放，<br>  而这些厂商都是第三方厂商，如果没有提供SPI这种实现标准，那就只有修改JAVA的源代码了，那这个弊端也是显而易见的，而有了SPI标准，SUN公司只需要提供一个播放接口，在实现播放的功能上通过ServiceLoad的方式加载服务，那么第三方只需要实现这个播放接口，再按SPI标准的约定进行打包，再放到classpath下面就OK了，没有一点代码的侵入性。</p>
+<h3 id="SPI约定"><a href="#SPI约定" class="headerlink" title="SPI约定"></a>SPI约定</h3><ul>
+<li><p>1、当服务提供者提供了接口的一种具体实现后，在jar包的META-INF/services目录下创建一个以“接口全限定名”为命名的文件，内容为实现类的全限定名(接口全路径是com.kk.test,那么文件名也是com.kk.test)；</p>
+</li>
+<li><p>2、接口实现类所在的jar包放在主程序的classpath中；</p>
+</li>
+<li><p>3、主程序通过java.util.ServiceLoder动态装载实现模块，它通过扫描META-INF/services目录下的配置文件找到实现类的全限定名，把类加载到JVM；</p>
+</li>
+<li><p>4、SPI的实现类必须携带一个不带参数的构造方法；</p>
+<h3 id="SPI应用场景"><a href="#SPI应用场景" class="headerlink" title="SPI应用场景"></a>SPI应用场景</h3></li>
+<li><p>JDBC加载不同类型数据库的驱动</p>
+</li>
+<li><p>日志门面接口实现类加载，SLF4J对log4j/logback的支持</p>
+</li>
+<li><p>Spring中大量使用了SPI,比如：对servlet3.0规范对ServletContainerInitializer的实现、自动类型转换Type Conversion SPI(Converter SPI、Formatter SPI)等</p>
+</li>
+<li><p>Dubbo中也大量使用SPI的方式实现框架的扩展, 不过它对Java提供的原生SPI做了封装，允许用户扩展实现Filter接口</p>
+</li>
+</ul>
+<h2 id="starter机制"><a href="#starter机制" class="headerlink" title="starter机制"></a>starter机制</h2><p>   在我们的日常开发工作中，一些独立于业务之外的配置模块，我们将其放到一个特定的包下，<br>然后如果另一个工程需要复用这块功能的时候，需要将代码硬拷贝到另一个工程，重新集成一遍，麻烦至极。如果我们将这些可独立于业务代码之外的功配置模块封装成一个个starter，复用的时候只需要将其在pom中引用依赖即可，SpringBoot为我们完成自动装配。<br>   这时会有一个疑问，难倒不可以将复用功能打成了一个jar包，deploy到了你们公司的maven仓库里，然后依赖不就行了吗？<br>这样做当然也是可以的，但如果jar包路径跟项目本身包路径不完全一致，为了让他代码里的一些bean可以注入到IOC容器，你就需要在你们的项目里通过@ComponentScan注解指定要扫描的包路径也包括他们的。。。。如果复用的jar多起来，就会导致非常的繁琐。</p>
+<h3 id="starter的意义"><a href="#starter的意义" class="headerlink" title="starter的意义"></a>starter的意义</h3><p>   SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂的配置，将其统一集成进starter，<br>应用者只需要在maven中引入starter依赖，SpringBoot就能自动扫描到要加载的信息并启动相应的默认配置。starter让我们摆脱了各种依赖库的处理，需要配置各种信息的困扰。SpringBoot会自动通过classpath路径下的类发现需要的Bean，并注册进IOC容器。SpringBoot提供了针对日常企业应用研发各种场景的spring-boot-starter依赖模块。所有这些依赖模块都遵循着约定成俗的默认配置，并允许我们调整这些配置，即遵循“约定大于配置”的理念。</p>
+<h3 id="starter的命名规则"><a href="#starter的命名规则" class="headerlink" title="starter的命名规则"></a>starter的命名规则</h3><p>SpringBoot提供的starter以spring-boot-starter-xxx的方式命名的。官方建议自定义的starter使用xxx-spring-boot-starter命名规则。以区分SpringBoot生态提供的starter。</p>
+<h3 id="starter的应用场景"><a href="#starter的应用场景" class="headerlink" title="starter的应用场景"></a>starter的应用场景</h3><p>   在平常遇到的一些场景。</p>
+<ul>
+<li>网关</li>
+<li>日志跟踪</li>
+<li>mqtt</li>
+<li>报文加密</li>
+<li>推流</li>
+<li>。。。。</li>
+</ul>
+<h3 id="自定义starter"><a href="#自定义starter" class="headerlink" title="自定义starter"></a>自定义starter</h3><ul>
+<li>新建starter工程，参照先前的博客</li>
+<li>资源目录resources下建立一个 META-INF 目录，并在该目录下建立一个 spring.factories 文件，指定你要被IOC容器管理的配置类的全额限定名(命名方式都为：XXXXAutoConfiguration —&gt;即自动配置类)</li>
+<li>在starter工程中执行mvn clean install 一个自定义的starter完成。</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/11/26/springCloud/buildSprinCloud_2/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://kkzhanga.github.io/2021/04/22/springBoot/starter1/>https://kkzhanga.github.io/2021/04/22/springBoot/starter1/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-22T18:30:06+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Apr 22, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/springBoot/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>springBoot</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/starter/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>starter</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/spi/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>spi</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2020/11/19/springCloud/buildSprinCloud_1/">
-        从零搭建sprinCloud框架（一）
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://kkzhanga.github.io/2021/04/22/springBoot/starter1/&title=springBoot自定义starter - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
     
-      <h1 id="搭建工程基础框架"><a href="#搭建工程基础框架" class="headerlink" title="搭建工程基础框架"></a>搭建工程基础框架</h1><h2 id="项目父工程配置"><a href="#项目父工程配置" class="headerlink" title="项目父工程配置"></a>项目父工程配置</h2><h3 id="Idea创建工程："><a href="#Idea创建工程：" class="headerlink" title="Idea创建工程："></a>Idea创建工程：</h3><ol>
-<li><p>File -&gt; New -&gt; Project<br><img src="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" srcset="data:image/png;base64,666" alt="1606358078.jpg"></p>
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://kkzhanga.github.io/2021/04/22/springBoot/starter1/&title=springBoot自定义starter - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://kkzhanga.github.io/2021/04/22/springBoot/starter1/&title=springBoot自定义starter - KKZhang’s Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2020-11-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2020/11/19/springCloud/buildSprinCloud_1/'>
-            Read More
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/12/11/spring/filterAndInterceptor/'>
+          <p class='title'>springBoot之过滤器 vs 拦截器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>对于过滤器和拦截器只是使用，没有仔细了解二者的区别，这次写个博客好好总结一下。
+
+
+过滤器过滤器Filter，是在Servlet规范中定义的，是Servlet容器支持的，该接口定义在 javax...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -342,131 +479,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">KKZhang’s Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/SpringCloud/" href="/categories/SpringCloud/"
-            id="categoriesSpringCloud"
-            ><div class='name'>SpringCloud</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/springBoot/" href="/categories/springBoot/"
-            id="categoriesspringBoot"
-            ><div class='name'>springBoot</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6"><span class="toc-text">SPI机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="toc-text">SPI机制介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E7%BA%A6%E5%AE%9A"><span class="toc-text">SPI约定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">SPI应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#starter%E6%9C%BA%E5%88%B6"><span class="toc-text">starter机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#starter%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">starter的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#starter%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-text">starter的命名规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#starter%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">starter的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89starter"><span class="toc-text">自定义starter</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/SpringCloud/" style="font-size: 14px; color: #999">SpringCloud</a> <a href="/tags/filter/" style="font-size: 14px; color: #999">filter</a> <a href="/tags/idea/" style="font-size: 14px; color: #999">idea</a> <a href="/tags/interceptor/" style="font-size: 14px; color: #999">interceptor</a> <a href="/tags/maven/" style="font-size: 14px; color: #999">maven</a> <a href="/tags/spi/" style="font-size: 14px; color: #999">spi</a> <a href="/tags/springBoot/" style="font-size: 24px; color: #555">springBoot</a> <a href="/tags/starter/" style="font-size: 14px; color: #999">starter</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -476,8 +510,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="springBoot自定义starter";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 

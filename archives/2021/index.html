@@ -21,7 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: SpringCloud - KKZhang’s Blog</title>
+  <title>Archive: 2021 - KKZhang’s Blog</title>
   
 
   
@@ -58,7 +58,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -181,7 +181,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  search' style="display: none;">
+        <div id="half" class='cover-wrapper  search' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist@1.0.0/2020/025.jpg"></div>
           
@@ -220,19 +220,15 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
         
           
         
-          
-        
       
     
     
@@ -246,74 +242,32 @@
   
     
     <h2 class="article-title" >
-      <a href="/2020/11/26/springCloud/buildSprinCloud_2/">
-        从零搭建sprinCloud框架（二）
+      <a href="/2021/04/22/springBoot/starter1/">
+        springBoot自定义starter
       </a>
     </h2>
   
   <div class='md'>
     
-      <h1 id="整合gateway"><a href="#整合gateway" class="headerlink" title="整合gateway"></a>整合gateway</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>SpringCloud Gateway成为SpringCloud的重要组件是为了提到替代Netflix Zuul(1.x版本基于过滤器，阻塞IO，不支持长连接，2.x版本一直跳票，2019年5月，开源了支持异步调用模式的Zuul 2.0版本)</p>
+      
+        前言   一直想总结下springBoot的starter机制，以便于对自动装配能有进一步的了解。使用starter之前，需要了解下SPI机制。
+SPI机制SPI机制介绍   SPI全称Service Provider Interface(服务提供发现机制)， 是Java提供的一套用来被第三方实现或者扩展的API，它可以用来启用框架扩展和替换组件。实际上是“基于接口的编程＋策略模式＋配置文件...
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-11-26</time>
+        <time>2021-04-22</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
+          <a class="category-link" href="/categories/springBoot/">springBoot</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2020/11/26/springCloud/buildSprinCloud_2/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/11/19/springCloud/buildSprinCloud_1/">
-        从零搭建sprinCloud框架（一）
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h1 id="搭建工程基础框架"><a href="#搭建工程基础框架" class="headerlink" title="搭建工程基础框架"></a>搭建工程基础框架</h1><h2 id="项目父工程配置"><a href="#项目父工程配置" class="headerlink" title="项目父工程配置"></a>项目父工程配置</h2><h3 id="Idea创建工程："><a href="#Idea创建工程：" class="headerlink" title="Idea创建工程："></a>Idea创建工程：</h3><ol>
-<li><p>File -&gt; New -&gt; Project<br><img src="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" class="lazyload" data-srcset="https://i.loli.net/2020/11/26/NBF8rXovSbeYOWG.png" srcset="data:image/png;base64,666" alt="1606358078.jpg"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-19</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/SpringCloud/">SpringCloud</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/11/19/springCloud/buildSprinCloud_1/'>
+          <a class='readmore' href='/2021/04/22/springBoot/starter1/'>
             Read More
           </a>
         </div>
@@ -333,8 +287,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -483,7 +436,7 @@
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
 </script>
 
