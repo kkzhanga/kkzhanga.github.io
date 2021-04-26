@@ -4,7 +4,7 @@
   <url>
     <loc>https://kkzhanga.github.io/2021/04/22/springBoot/starter1/</loc>
     
-    <lastmod>2021-04-22</lastmod>
+    <lastmod>2021-04-26</lastmod>
     
   </url>
   
@@ -53,6 +53,20 @@
   </url>
   
   <url>
+    <loc>https://kkzhanga.github.io/tags/starter/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kkzhanga.github.io/tags/spi/</loc>
+    <lastmod>2021-04-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kkzhanga.github.io/tags/filter/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
@@ -82,20 +96,6 @@
   
   <url>
     <loc>https://kkzhanga.github.io/tags/idea/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kkzhanga.github.io/tags/starter/</loc>
-    <lastmod>2021-04-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kkzhanga.github.io/tags/spi/</loc>
     <lastmod>2021-04-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
